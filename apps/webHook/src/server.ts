@@ -13,7 +13,7 @@ interface paymentInfo {
 }
 
 app.post('/bankWebHook',async(req,res)=>{
-    const paymentInformation:paymentInfo = {
+    const payment:paymentInfo = {
         token:req.body.token,
         userId:req.body.userId,
         amount:req.body.amount
@@ -23,17 +23,17 @@ app.post('/bankWebHook',async(req,res)=>{
         await client.$transaction([
             client.balance.updateMany({
                 where:{
-                    userId:Number(paymentInformation.userId),
+                    userId:Number(payment.userId),
                 },
                 data:{
                     amount:{
-                        increment:Number(paymentInformation.amount)
+                        increment:Number(payment.amount)
                     }
                 }
             }),
             client.onRampTransactions.updateMany({
                 where:{
-                    token:paymentInformation.token
+                    token:payment.token
                 },
                 data:{
                     status:"Success",
