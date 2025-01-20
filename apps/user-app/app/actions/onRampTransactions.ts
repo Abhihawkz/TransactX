@@ -4,7 +4,7 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "../lib/auth";
 import prisma from "@repo/db/client";
 
-export default async function OnRampTransactionCreate({amount,provider,status}:{amount:number,provider:string,status:string}){
+export default async function createOnRampTransaction({amount,provider,status}:{amount:number,provider:string,status:string}){
     const session = await getServerSession(authOptions);
     const userId = session?.user?.userId;
     if(!userId){

@@ -4,7 +4,6 @@ import { Card } from "@repo/ui/card";
 import { Select } from "@repo/ui/select";
 import { useState } from "react";
 import { TextInput } from "@repo/ui/textinput";
-import { createOnRampTransaction } from "../app/lib/actions/createOnrampTransaction";
 
 const SUPPORTED_BANKS = [{
     name: "HDFC Bank",
@@ -44,3 +43,5 @@ export const AddMoney = () => {
     </div>
 </Card>
 }
+
+export { TextInput };
