@@ -1,5 +1,5 @@
 {
-  "name": "transactx",
+  "name": "week-18",
   "private": true,
   "scripts": {
     "build": "turbo build",
